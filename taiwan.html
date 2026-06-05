@@ -755,8 +755,8 @@ mDesc.textContent=s.desc;
 mImg.src='https://source.unsplash.com/800x400/?'+s.search;
 mImg.alt=name;
 mLinks.innerHTML=
-'<a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query='+s.lat+','+s.lng+'" target="_blank">📍 Google Maps</a>'+
-'<a class="btn-photo" href="https://www.google.com/maps/search/'+encodeURIComponent(name)+'/@'+s.lat+','+s.lng+',15z" target="_blank">📷 更多照片</a>';
+'<a class="btn-maps" href="https://www.google.com/maps/search/'+encodeURIComponent(name)+'/@'+s.lat+','+s.lng+',15z" target="_blank">📍 Google Maps</a>'+
+'<a class="btn-photo" href="https://www.google.com/search?q='+encodeURIComponent(name+' 台灣')+'&tbm=isch" target="_blank">📷 更多照片</a>';
 overlay.classList.add('show');
 }
 // Make all .spot elements clickable
