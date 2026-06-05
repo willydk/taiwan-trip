@@ -4,74 +4,89 @@
 <name>台灣親子環島 14天 (12/18-12/31)</name>
 <description>2026 冬季親子環島行程 - 專為7歲&amp;11歲男孩設計</description>
 
+<Style id="d1"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/1.png</href></Icon></IconStyle></Style>
+<Style id="d2"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/2.png</href></Icon></IconStyle></Style>
+<Style id="d3"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/3.png</href></Icon></IconStyle></Style>
+<Style id="d4"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/4.png</href></Icon></IconStyle></Style>
+<Style id="d5"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/5.png</href></Icon></IconStyle></Style>
+<Style id="d6"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/6.png</href></Icon></IconStyle></Style>
+<Style id="d7"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/7.png</href></Icon></IconStyle></Style>
+<Style id="d8"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/8.png</href></Icon></IconStyle></Style>
+<Style id="d9"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/9.png</href></Icon></IconStyle></Style>
+<Style id="d10"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/paddle/10.png</href></Icon></IconStyle></Style>
+<Style id="d11"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/pushpin/red-pushpin.png</href></Icon></IconStyle></Style>
+<Style id="d12"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/pushpin/grn-pushpin.png</href></Icon></IconStyle></Style>
+<Style id="d13"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href></Icon></IconStyle></Style>
+<Style id="d14"><IconStyle><Icon><href>http://maps.google.com/mapfiles/kml/pushpin/purple-pushpin.png</href></Icon></IconStyle></Style>
+
 <Folder>
 <name>Day 1-2 宜蘭</name>
-<Placemark><name>1. 宜蘭幾米公園</name><description>Day 1 - 繪本場景真實呈現，拍照超可愛</description><Point><coordinates>121.758,24.752,0</coordinates></Point></Placemark>
-<Placemark><name>1. 羅東林業文化園區</name><description>Day 1 - 蒸汽火車頭、生態池、森林步道（免費）</description><Point><coordinates>121.770,24.682,0</coordinates></Point></Placemark>
-<Placemark><name>1. 斑比山丘</name><description>Day 1 - 餵梅花鹿！像奈良一樣</description><Point><coordinates>121.710,24.690,0</coordinates></Point></Placemark>
-<Placemark><name>1-2. 蘭城晶英酒店</name><description>Day 1-2 住宿 - 芬朵奇堡+電動車跑道</description><Point><coordinates>121.753,24.752,0</coordinates></Point></Placemark>
-<Placemark><name>2. 國立傳統藝術中心</name><description>Day 2 - DIY手作（捏麵人、畫糖、藍染）、搭船遊河</description><Point><coordinates>121.826,24.687,0</coordinates></Point></Placemark>
+<Placemark><name>宜蘭幾米公園</name><description>Day 1 - 繪本場景真實呈現，拍照超可愛</description><styleUrl>#d1</styleUrl><Point><coordinates>121.758,24.752,0</coordinates></Point></Placemark>
+<Placemark><name>羅東林業文化園區</name><description>Day 1 - 蒸汽火車頭、生態池、森林步道（免費）</description><styleUrl>#d1</styleUrl><Point><coordinates>121.770,24.682,0</coordinates></Point></Placemark>
+<Placemark><name>斑比山丘</name><description>Day 1 - 餵梅花鹿！像奈良一樣</description><styleUrl>#d1</styleUrl><Point><coordinates>121.710,24.690,0</coordinates></Point></Placemark>
+<Placemark><name>蘭城晶英酒店</name><description>Day 1-2 住宿 - 芬朵奇堡+電動車跑道</description><styleUrl>#d1</styleUrl><Point><coordinates>121.753,24.752,0</coordinates></Point></Placemark>
+<Placemark><name>國立傳統藝術中心</name><description>Day 2 - DIY手作（捏麵人、畫糖、藍染）、搭船遊河</description><styleUrl>#d2</styleUrl><Point><coordinates>121.826,24.687,0</coordinates></Point></Placemark>
 </Folder>
 
 <Folder>
 <name>Day 3-4 花蓮</name>
-<Placemark><name>3. 遠雄海洋公園</name><description>Day 3 - 海豚表演、海獅秀、摩天輪、水族館</description><Point><coordinates>121.570,23.890,0</coordinates></Point></Placemark>
-<Placemark><name>3. 東大門夜市</name><description>Day 3 - 射氣球、撈金魚、烤玉米</description><Point><coordinates>121.610,23.975,0</coordinates></Point></Placemark>
-<Placemark><name>4. 太魯閣 砂卡礑步道</name><description>Day 4 - 平緩步道，水超清澈，來回約1hr</description><Point><coordinates>121.492,24.171,0</coordinates></Point></Placemark>
-<Placemark><name>4. 七星潭</name><description>Day 4 - 撿石頭、疊石頭、騎腳踏車</description><Point><coordinates>121.631,24.028,0</coordinates></Point></Placemark>
-<Placemark><name>4. 大魯閣打擊場 花蓮⚾</name><description>Day 4 - 24hr營業，各種速度</description><Point><coordinates>121.600,23.980,0</coordinates></Point></Placemark>
+<Placemark><name>遠雄海洋公園</name><description>Day 3 - 海豚表演、海獅秀、摩天輪、水族館</description><styleUrl>#d3</styleUrl><Point><coordinates>121.570,23.890,0</coordinates></Point></Placemark>
+<Placemark><name>東大門夜市</name><description>Day 3 - 射氣球、撈金魚、烤玉米</description><styleUrl>#d3</styleUrl><Point><coordinates>121.610,23.975,0</coordinates></Point></Placemark>
+<Placemark><name>太魯閣 砂卡礑步道</name><description>Day 4 - 平緩步道，水超清澈，來回約1hr</description><styleUrl>#d4</styleUrl><Point><coordinates>121.492,24.171,0</coordinates></Point></Placemark>
+<Placemark><name>七星潭</name><description>Day 4 - 撿石頭、疊石頭、騎腳踏車</description><styleUrl>#d4</styleUrl><Point><coordinates>121.631,24.028,0</coordinates></Point></Placemark>
+<Placemark><name>大魯閣打擊場 花蓮⚾</name><description>Day 4 - 24hr營業，各種速度</description><styleUrl>#d4</styleUrl><Point><coordinates>121.600,23.980,0</coordinates></Point></Placemark>
 </Folder>
 
 <Folder>
 <name>Day 5-6 台東</name>
-<Placemark><name>5. 瑞穗牧場</name><description>Day 5 - 餵乳牛、喝鮮奶（免門票）</description><Point><coordinates>121.365,23.465,0</coordinates></Point></Placemark>
-<Placemark><name>5. 池上伯朗大道+金城武樹</name><description>Day 5 - 租四人協力車騎稻田</description><Point><coordinates>121.215,23.100,0</coordinates></Point></Placemark>
-<Placemark><name>6. 初鹿牧場</name><description>Day 6 - 滑草超刺激！餵兔子小馬</description><Point><coordinates>121.050,22.840,0</coordinates></Point></Placemark>
-<Placemark><name>6. 鐵花村</name><description>Day 6 - 文創市集、熱氣球裝置藝術</description><Point><coordinates>121.145,22.750,0</coordinates></Point></Placemark>
-<Placemark><name>6. 知本溫泉</name><description>Day 6 - 泡湯＋兒童戲水區</description><Point><coordinates>120.985,22.692,0</coordinates></Point></Placemark>
+<Placemark><name>瑞穗牧場</name><description>Day 5 - 餵乳牛、喝鮮奶（免門票）</description><styleUrl>#d5</styleUrl><Point><coordinates>121.365,23.465,0</coordinates></Point></Placemark>
+<Placemark><name>池上伯朗大道+金城武樹</name><description>Day 5 - 租四人協力車騎稻田</description><styleUrl>#d5</styleUrl><Point><coordinates>121.215,23.100,0</coordinates></Point></Placemark>
+<Placemark><name>初鹿牧場</name><description>Day 6 - 滑草超刺激！餵兔子小馬</description><styleUrl>#d6</styleUrl><Point><coordinates>121.050,22.840,0</coordinates></Point></Placemark>
+<Placemark><name>鐵花村</name><description>Day 6 - 文創市集、熱氣球裝置藝術</description><styleUrl>#d6</styleUrl><Point><coordinates>121.145,22.750,0</coordinates></Point></Placemark>
+<Placemark><name>知本溫泉</name><description>Day 6 - 泡湯＋兒童戲水區</description><styleUrl>#d6</styleUrl><Point><coordinates>120.985,22.692,0</coordinates></Point></Placemark>
 </Folder>
 
 <Folder>
 <name>Day 7-8 墾丁+海生館</name>
-<Placemark><name>7. 多良車站</name><description>Day 7 - 全台最美車站</description><Point><coordinates>120.950,22.525,0</coordinates></Point></Placemark>
-<Placemark><name>7. 白沙灣</name><description>Day 7 - 水淺適合小孩玩沙</description><Point><coordinates>120.708,21.927,0</coordinates></Point></Placemark>
-<Placemark><name>7. 鵝鑾鼻燈塔</name><description>Day 7 - 台灣最南端</description><Point><coordinates>120.855,21.902,0</coordinates></Point></Placemark>
-<Placemark><name>7. 墾丁大街</name><description>Day 7 平安夜 - 夜市！滷味、彈珠台</description><Point><coordinates>120.800,21.945,0</coordinates></Point></Placemark>
-<Placemark><name>8. 海生館 夜宿🐋</name><description>Day 8 聖誕節 - 海底隧道旁看魚入睡</description><Point><coordinates>120.698,22.045,0</coordinates></Point></Placemark>
+<Placemark><name>多良車站</name><description>Day 7 - 全台最美車站</description><styleUrl>#d7</styleUrl><Point><coordinates>120.950,22.525,0</coordinates></Point></Placemark>
+<Placemark><name>白沙灣</name><description>Day 7 - 水淺適合小孩玩沙</description><styleUrl>#d7</styleUrl><Point><coordinates>120.708,21.927,0</coordinates></Point></Placemark>
+<Placemark><name>鵝鑾鼻燈塔</name><description>Day 7 - 台灣最南端</description><styleUrl>#d7</styleUrl><Point><coordinates>120.855,21.902,0</coordinates></Point></Placemark>
+<Placemark><name>墾丁大街</name><description>Day 7 平安夜 - 夜市！滷味、彈珠台</description><styleUrl>#d7</styleUrl><Point><coordinates>120.800,21.945,0</coordinates></Point></Placemark>
+<Placemark><name>海生館 夜宿🐋</name><description>Day 8 聖誕節 - 海底隧道旁看魚入睡</description><styleUrl>#d8</styleUrl><Point><coordinates>120.698,22.045,0</coordinates></Point></Placemark>
 </Folder>
 
 <Folder>
 <name>Day 9-10 高雄</name>
-<Placemark><name>9. 義大遊樂世界</name><description>Day 9 - 三大主題區，雲霄飛車+旋轉木馬</description><Point><coordinates>120.390,22.730,0</coordinates></Point></Placemark>
-<Placemark><name>10. GOPARK 卡丁樂園</name><description>Day 10 - 電動卡丁車+雷射槍戰</description><Point><coordinates>120.310,22.590,0</coordinates></Point></Placemark>
-<Placemark><name>10. 哈瑪星鐵道館</name><description>Day 10 - 超大模型鐵道</description><Point><coordinates>120.280,22.620,0</coordinates></Point></Placemark>
-<Placemark><name>10. i-Ride 飛行劇院</name><description>Day 10 - 5D體感飛越台灣</description><Point><coordinates>120.290,22.610,0</coordinates></Point></Placemark>
-<Placemark><name>10. 駁二藝術特區</name><description>Day 10 - 裝置藝術+哈瑪星小火車</description><Point><coordinates>120.282,22.620,0</coordinates></Point></Placemark>
-<Placemark><name>10. 大魯閣打擊場 高雄⚾</name><description>Day 10 - 左營區博愛館24hr</description><Point><coordinates>120.310,22.670,0</coordinates></Point></Placemark>
+<Placemark><name>義大遊樂世界</name><description>Day 9 - 三大主題區，雲霄飛車+旋轉木馬</description><styleUrl>#d9</styleUrl><Point><coordinates>120.390,22.730,0</coordinates></Point></Placemark>
+<Placemark><name>GOPARK 卡丁樂園</name><description>Day 10 - 電動卡丁車+雷射槍戰</description><styleUrl>#d10</styleUrl><Point><coordinates>120.310,22.590,0</coordinates></Point></Placemark>
+<Placemark><name>哈瑪星鐵道館</name><description>Day 10 - 超大模型鐵道</description><styleUrl>#d10</styleUrl><Point><coordinates>120.280,22.620,0</coordinates></Point></Placemark>
+<Placemark><name>i-Ride 飛行劇院</name><description>Day 10 - 5D體感飛越台灣</description><styleUrl>#d10</styleUrl><Point><coordinates>120.290,22.610,0</coordinates></Point></Placemark>
+<Placemark><name>駁二藝術特區</name><description>Day 10 - 裝置藝術+哈瑪星小火車</description><styleUrl>#d10</styleUrl><Point><coordinates>120.282,22.620,0</coordinates></Point></Placemark>
+<Placemark><name>大魯閣打擊場 高雄⚾</name><description>Day 10 - 左營區博愛館24hr</description><styleUrl>#d10</styleUrl><Point><coordinates>120.310,22.670,0</coordinates></Point></Placemark>
 </Folder>
 
 <Folder>
 <name>Day 11 台南</name>
-<Placemark><name>11. 奇美博物館</name><description>Day 11 - 動物標本、兵器展、樂器廳</description><Point><coordinates>120.226,22.935,0</coordinates></Point></Placemark>
-<Placemark><name>11. 國華街美食</name><description>Day 11 - 牛肉湯、碗粿、蝦捲、棺材板</description><Point><coordinates>120.197,22.997,0</coordinates></Point></Placemark>
-<Placemark><name>11. 安平樹屋</name><description>Day 11 - 被榕樹根纏繞，像叢林冒險</description><Point><coordinates>120.160,22.997,0</coordinates></Point></Placemark>
-<Placemark><name>11. 大魯閣打擊場 台南⚾</name><description>Day 11 - 仁德館，往台中路上順路</description><Point><coordinates>120.250,22.935,0</coordinates></Point></Placemark>
+<Placemark><name>奇美博物館</name><description>Day 11 - 動物標本、兵器展、樂器廳</description><styleUrl>#d11</styleUrl><Point><coordinates>120.226,22.935,0</coordinates></Point></Placemark>
+<Placemark><name>國華街美食</name><description>Day 11 - 牛肉湯、碗粿、蝦捲、棺材板</description><styleUrl>#d11</styleUrl><Point><coordinates>120.197,22.997,0</coordinates></Point></Placemark>
+<Placemark><name>安平樹屋</name><description>Day 11 - 被榕樹根纏繞，像叢林冒險</description><styleUrl>#d11</styleUrl><Point><coordinates>120.160,22.997,0</coordinates></Point></Placemark>
+<Placemark><name>大魯閣打擊場 台南⚾</name><description>Day 11 - 仁德館，往台中路上順路</description><styleUrl>#d11</styleUrl><Point><coordinates>120.250,22.935,0</coordinates></Point></Placemark>
 </Folder>
 
 <Folder>
 <name>Day 12-13 台中</name>
-<Placemark><name>12. 國立自然科學博物館</name><description>Day 12 - 全台最大恐龍！太空劇場</description><Point><coordinates>120.665,24.157,0</coordinates></Point></Placemark>
-<Placemark><name>12. 宮原眼科</name><description>Day 12 - 超華麗冰淇淋＋伴手禮</description><Point><coordinates>120.683,24.137,0</coordinates></Point></Placemark>
-<Placemark><name>12. SNOWTOWN 雪樂地</name><description>Day 12 - 室內玩雪！滑雪盆堆雪人</description><Point><coordinates>120.530,24.255,0</coordinates></Point></Placemark>
-<Placemark><name>12. 逢甲夜市</name><description>Day 12 - 地瓜球、明倫蛋餅、大腸包小腸</description><Point><coordinates>120.646,24.178,0</coordinates></Point></Placemark>
-<Placemark><name>13. 洲際棒球文創園區⚾</name><description>Day 13 - 棒球故事館、互動打擊、模擬跑壘</description><Point><coordinates>120.700,24.188,0</coordinates></Point></Placemark>
-<Placemark><name>13. 大魯閣打擊場 台中⚾</name><description>Day 13 - 新時代館60-130km/h</description><Point><coordinates>120.680,24.150,0</coordinates></Point></Placemark>
+<Placemark><name>國立自然科學博物館</name><description>Day 12 - 全台最大恐龍！太空劇場</description><styleUrl>#d12</styleUrl><Point><coordinates>120.665,24.157,0</coordinates></Point></Placemark>
+<Placemark><name>宮原眼科</name><description>Day 12 - 超華麗冰淇淋＋伴手禮</description><styleUrl>#d12</styleUrl><Point><coordinates>120.683,24.137,0</coordinates></Point></Placemark>
+<Placemark><name>SNOWTOWN 雪樂地</name><description>Day 12 - 室內玩雪！滑雪盆堆雪人</description><styleUrl>#d12</styleUrl><Point><coordinates>120.530,24.255,0</coordinates></Point></Placemark>
+<Placemark><name>逢甲夜市</name><description>Day 12 - 地瓜球、明倫蛋餅、大腸包小腸</description><styleUrl>#d12</styleUrl><Point><coordinates>120.646,24.178,0</coordinates></Point></Placemark>
+<Placemark><name>洲際棒球文創園區⚾</name><description>Day 13 - 棒球故事館、互動打擊、模擬跑壘</description><styleUrl>#d13</styleUrl><Point><coordinates>120.700,24.188,0</coordinates></Point></Placemark>
+<Placemark><name>大魯閣打擊場 台中⚾</name><description>Day 13 - 新時代館60-130km/h</description><styleUrl>#d13</styleUrl><Point><coordinates>120.680,24.150,0</coordinates></Point></Placemark>
 </Folder>
 
 <Folder>
-<name>Day 14 回中和 跨年🎆</name>
-<Placemark><name>14. 第二市場</name><description>Day 14 - 老賴紅茶、菜頭粿早午餐</description><Point><coordinates>120.680,24.143,0</coordinates></Point></Placemark>
-<Placemark><name>14. 中和（回家）🎆</name><description>Day 14 - 跨年倒數迎接2027！</description><Point><coordinates>121.494,24.998,0</coordinates></Point></Placemark>
+<name>Day 14 回中和🎆</name>
+<Placemark><name>第二市場</name><description>Day 14 - 老賴紅茶、菜頭粿早午餐</description><styleUrl>#d14</styleUrl><Point><coordinates>120.680,24.143,0</coordinates></Point></Placemark>
+<Placemark><name>中和（回家）🎆</name><description>Day 14 - 跨年倒數迎接2027！</description><styleUrl>#d14</styleUrl><Point><coordinates>121.494,24.998,0</coordinates></Point></Placemark>
 </Folder>
 
 </Document>
