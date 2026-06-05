@@ -73,6 +73,8 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 .modal-links a:hover{opacity:0.8}
 .btn-maps{background:#4285f4;color:#fff}
 .btn-photo{background:#e67e22;color:#fff}
+.next-section-btn{display:block;margin:30px auto 0;padding:12px 28px;background:#e67e22;color:#fff;border:none;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:background .2s}
+.next-section-btn:hover{background:#d35400}
 .modal-close{position:absolute;top:12px;right:14px;background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:30px;height:30px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 @media(max-width:600px){.header h1{font-size:28px}.tabs{overflow-x:auto}.tab{padding:12px 12px;font-size:13px}.day-block{padding:18px}.map-detail{padding:16px}.modal{max-width:100%;border-radius:10px}.modal-img{height:180px}}
 </style>
@@ -181,6 +183,8 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 <p id="detail-info"></p>
 <div class="detail-schedule" id="detail-schedule"></div>
 </div>
+
+<button class="next-section-btn" onclick="document.querySelector('[data-tab=northeast]').click()">下一站：🌊 宜蘭 →</button>
 </div>
 
 <div class="section" id="northeast">
@@ -237,6 +241,8 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 <div class="stay-box">🏨 <b>住宿：</b>蘭城晶英酒店（第二晚，玩好玩滿！）</div>
 <div class="booking-alert">🔴 <b>需提前訂！</b>蘭城晶英連住兩晚要一起訂，官網有時有連住優惠。</div>
 </div>
+
+<button class="next-section-btn" onclick="document.querySelector('[data-tab=east]').click()">下一站：⛰ 花東 →</button>
 </div>
 
 <div class="section" id="east">
@@ -338,6 +344,8 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 <div class="food-box">🍽 <b>推薦吃：</b>初鹿鮮奶冰淇淋、老東台米苔目、知本溫泉飯店晚餐</div>
 <div class="stay-box">🏨 <b>住宿：</b>知本老爺酒店（兒童遊戲室+溫泉）/ 知本金聯世紀酒店 / 東遊季溫泉渡假村</div>
 </div>
+
+<button class="next-section-btn" onclick="document.querySelector('[data-tab=south]').click()">下一站：🏖 南部 →</button>
 </div>
 
 <div class="section" id="south">
@@ -440,6 +448,8 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 <div class="food-box">🍽 <b>推薦吃：</b>丹丹漢堡、瑞豐夜市、駁二附近港口海鮮、高雄木瓜牛奶大王</div>
 <div class="stay-box">🏨 <b>住宿：</b>同 Day 9 高雄市區飯店（住兩晚不搬行李）</div>
 </div>
+
+<button class="next-section-btn" onclick="document.querySelector('[data-tab=central]').click()">下一站：🏯 中西部 →</button>
 </div>
 
 <div class="section" id="central">
@@ -518,6 +528,8 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 <div class="food-box">🍽 <b>推薦吃：</b>一中街雞排、逢甲夜市、台中肉蛋吐司</div>
 <div class="stay-box">🏨 <b>住宿：</b>同 Day 11 台中飯店（第三晚）</div>
 </div>
+
+<button class="next-section-btn" onclick="document.querySelector('[data-tab=back]').click()">下一站：🏠 回程 →</button>
 </div>
 
 <div class="section" id="back">
@@ -549,6 +561,8 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 <div class="food-box">🍽 <b>推薦吃：</b>回家煮火鍋慶祝 / 中和華新街緬甸美食 / 叫外送犒賞自己</div>
 <div class="stay-box">🏠 <b>回到溫暖的家！</b>把旅行日記和照片整理一下，做成2026年最棒的回憶相簿 📷</div>
 </div>
+
+<button class="next-section-btn" onclick="document.querySelector('[data-tab=tips]').click()">下一站：▪ 貼士 →</button>
 </div>
 
 <div class="section" id="tips">
