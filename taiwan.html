@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>14天親子環島行程 2026</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0e8;color:#333;line-height:1.6}
+.header{background:linear-gradient(135deg,#1a3a4a 0%,#2d5a6b 50%,#1a3a4a 100%);text-align:center;padding:50px 20px}
+.header-badge{display:inline-block;border:1px solid #ffd700;color:#ffd700;padding:6px 20px;font-size:14px;letter-spacing:3px;margin-bottom:20px;border-radius:20px}
+.header h1{font-size:42px;color:#fff;margin-bottom:10px;font-weight:900}
+.header h1 span{color:#ffd700}
+.header .subtitle-badge{display:inline-block;background:rgba(255,255,255,0.15);color:#fff;padding:4px 16px;border-radius:12px;font-size:14px;margin-bottom:15px}
+.header .date{color:#ccc;font-size:16px;letter-spacing:5px;font-family:monospace}
+.tabs{background:#f5f0e8;border-bottom:2px solid #e0d6c8;display:flex;flex-wrap:nowrap;padding:0 20px;position:sticky;top:0;z-index:100;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.tab{padding:15px 16px;cursor:pointer;font-size:14px;color:#666;border-bottom:3px solid transparent;transition:all .3s;white-space:nowrap;-webkit-tap-highlight-color:rgba(0,0,0,0.1);touch-action:manipulation}
+.tab:hover{color:#333}
+.tab.active{color:#e67e22;border-bottom-color:#e67e22;font-weight:bold}
+.content{max-width:850px;margin:0 auto;padding:40px 20px}
+.section{display:none}.section.active{display:block}
+.region-header{margin-bottom:30px}
+.region-header .days-label{color:#999;font-size:13px;letter-spacing:3px;margin-bottom:8px}
+.region-header h2{font-size:30px;font-weight:900;margin-bottom:5px}
+.region-header .subtitle{color:#777;font-size:14px}
+.day-block{background:#fff;border-radius:10px;margin-bottom:20px;padding:25px;box-shadow:0 2px 6px rgba(0,0,0,0.06)}
+.day-block h3{font-size:18px;margin-bottom:4px;color:#2c3e50}
+.day-block .day-date{font-size:13px;color:#e67e22;margin-bottom:15px;font-weight:600}
+.time-slot{margin-bottom:14px;padding-left:16px;border-left:3px solid #ffd700}
+.time-slot:last-child{margin-bottom:0}
+.time-label{font-size:12px;font-weight:bold;color:#e67e22;text-transform:uppercase;margin-bottom:3px}
+.time-detail{font-size:14px;color:#444;line-height:1.7}
+.time-detail .spot{font-weight:600}
+.mezastar-tag{display:inline-block;background:#fff3cd;color:#856404;padding:2px 8px;border-radius:10px;font-size:11px;margin-top:4px}
+.info-box{background:#f0f7ff;border-radius:8px;padding:14px 18px;margin-top:15px;font-size:13px;color:#2980b9;line-height:1.7}
+.info-box b{color:#1a5276}
+.food-box{background:#fef9e7;border-radius:8px;padding:14px 18px;margin-top:10px;font-size:13px;color:#7d6608;line-height:1.7}
+.stay-box{background:#eafaf1;border-radius:8px;padding:14px 18px;margin-top:10px;font-size:13px;color:#1e8449;line-height:1.7}
+.tips-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.tip-card{background:#fff;border-radius:8px;padding:22px;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.tip-card h3{font-size:16px;margin-bottom:10px;color:#2c3e50}
+.tip-card li{font-size:13px;color:#555;line-height:1.9;margin-left:18px}
+.tip-card a{color:#2980b9;text-decoration:none;font-weight:500}.tip-card a:hover{text-decoration:underline;color:#e67e22}
+.footer{text-align:center;padding:40px 20px;color:#999;font-size:13px;border-top:1px solid #e0d6c8;margin-top:40px}
+.footer .heart{color:#e74c3c}
+.map-container{position:relative;max-width:500px;margin:0 auto}
+.map-container svg{width:100%;height:auto}
+.map-pin{cursor:pointer;transition:transform .2s}
+.map-pin:hover{transform:scale(1.3)}
+.map-pin circle{fill:#e67e22;stroke:#fff;stroke-width:2}
+.map-pin text{font-size:7px;fill:#fff;font-weight:bold;pointer-events:none;text-anchor:middle;dominant-baseline:central}
+.map-tooltip{position:absolute;background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 4px 20px rgba(0,0,0,0.15);font-size:13px;line-height:1.6;max-width:260px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:10;border-left:4px solid #e67e22}
+.map-tooltip.show{opacity:1}
+.map-tooltip h4{font-size:14px;color:#e67e22;margin-bottom:4px}
+.map-tooltip p{color:#555;margin:0}
+.map-legend{text-align:center;margin-top:20px;font-size:12px;color:#888}
+@media(max-width:600px){.header h1{font-size:28px}.tabs{overflow-x:auto}.tab{padding:12px 12px;font-size:13px}.day-block{padding:18px}.map-tooltip{max-width:200px;font-size:12px}}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="header-badge">🎒 台灣親子深度旅遊</div>
+<h1>14天<span>親子環島</span>行程</h1>
+<div class="subtitle-badge">專為 7 & 11 歲孩子設計 🎡</div>
+<div class="date">12 / 18 — 12 / 31 · 2026</div>
+</div>
+
+<div class="tabs">
+<div class="tab active" data-tab="map">🗺 地圖總覽</div>
+<div class="tab" data-tab="northeast">🌊 宜蘭</div>
+<div class="tab" data-tab="east">⛰ 花東</div>
+<div class="tab" data-tab="south">🏖 南部</div>
+<div class="tab" data-tab="central">🏯 中西部</div>
+<div class="tab" data-tab="back">🏠 回程</div>
+<div class="tab" data-tab="tips">▪ 貼士</div>
+</div>
+
+<div class="content">
+<div class="section active" id="map">
+<div class="region-header">
+<h2>行程地圖總覽</h2>
+<div class="subtitle">點擊或懸停地點查看每日行程摘要</div>
+</div>
+<div class="map-container">
+<div class="map-tooltip" id="tooltip"></div>
+<svg viewBox="0 0 300 500" xmlns="http://www.w3.org/2000/svg">
+<!-- Taiwan outline (simplified) -->
+<path d="M165,30 C175,28 185,32 192,40 C200,50 205,65 210,80 C218,100 225,120 228,140 C232,160 230,180 228,200 C225,220 220,240 215,260 C210,280 205,295 200,310 C195,325 188,340 180,355 C172,370 165,382 158,392 C150,402 142,410 135,415 C128,420 120,422 115,418 C108,412 105,400 102,388 C98,375 95,360 93,345 C90,325 88,305 87,285 C86,265 88,245 90,225 C93,205 97,185 102,167 C107,148 113,130 120,115 C127,100 135,85 143,70 C150,55 156,40 165,30 Z" fill="#e8e0d4" stroke="#ccc" stroke-width="1"/>
+<!-- Location pins -->
+<g class="map-pin" data-day="1-2" data-title="宜蘭 · Day 1-2" data-info="幾米公園、羅東林場、斑比山丘、蘭城晶英酒店、傳藝中心">
+<circle cx="175" cy="85" r="10"/><text x="175" y="85">1</text>
+</g>
+<g class="map-pin" data-day="3-4" data-title="花蓮 · Day 3-4" data-info="遠雄海洋公園、太魯閣、七星潭、大魯閣打擊場⚾">
+<circle cx="195" cy="155" r="10"/><text x="195" y="155">3</text>
+</g>
+<g class="map-pin" data-day="5" data-title="池上・瑞穗 · Day 5" data-info="瑞穗牧場餵乳牛、池上便當、伯朗大道騎腳踏車">
+<circle cx="185" cy="210" r="10"/><text x="185" y="210">5</text>
+</g>
+<g class="map-pin" data-day="6" data-title="台東 · Day 6" data-info="初鹿牧場滑草、鐵花村、知本溫泉">
+<circle cx="175" cy="260" r="10"/><text x="175" y="260">6</text>
+</g>
+<g class="map-pin" data-day="7" data-title="墾丁 · Day 7" data-info="白沙灣玩沙、鵝鑾鼻燈塔、墾丁大街（平安夜）">
+<circle cx="148" cy="390" r="10"/><text x="148" y="390">7</text>
+</g>
+<g class="map-pin" data-day="8" data-title="海生館 · Day 8" data-info="🐋 夜宿海生館！聖誕節在海底隧道旁入睡">
+<circle cx="128" cy="375" r="10"/><text x="128" y="375">8</text>
+</g>
+<g class="map-pin" data-day="9-10" data-title="高雄 · Day 9-10" data-info="義大遊樂世界、GOPARK卡丁車、哈瑪星鐵道館、i-Ride、大魯閣打擊場⚾">
+<circle cx="118" cy="330" r="10"/><text x="118" y="330">9</text>
+</g>
+<g class="map-pin" data-day="11" data-title="台南 · Day 11" data-info="奇美博物館、國華街美食、安平樹屋、大魯閣打擊場⚾">
+<circle cx="108" cy="300" r="10"/><text x="108" y="300">11</text>
+</g>
+<g class="map-pin" data-day="12-13" data-title="台中 · Day 12-13" data-info="科博館恐龍、SNOWTOWN玩雪、洲際棒球文創園區⚾、大魯閣打擊場、逢甲夜市">
+<circle cx="115" cy="215" r="10"/><text x="115" y="215">12</text>
+</g>
+<g class="map-pin" data-day="14" data-title="回中和 · Day 14" data-info="跨年夜回家！台中→中和，迎接2027🎆">
+<circle cx="155" cy="70" r="10" style="fill:#27ae60"/><text x="155" y="70">14</text>
+</g>
+</svg>
+<div class="map-legend">⚾ = 棒球活動 · 共 14 天 · 12/18–12/31</div>
+</div>
+</div>
+
+<div class="section" id="northeast">
+<div class="region-header">
+<div class="days-label">DAY 1 — 2 · DEC 18-19</div>
+<h2>宜蘭</h2>
+<div class="subtitle">幾米公園、羅東林場、斑比山丘、蘭城晶英、傳藝中心</div>
+</div>
+
+<div class="day-block">
+<h3>🚂 DAY 1 — 幾米公園・羅東林場・礁溪溫泉</h3>
+<div class="day-date">12/18（五）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 8:00-12:00</div>
+<div class="time-detail">從<span class="spot">中和出發</span>走國5到宜蘭（約1hr）→ <span class="spot">宜蘭幾米公園</span>（宜蘭火車站旁）：繪本場景真實呈現，拍照超可愛（約1hr）→ <span class="spot">羅東林業文化園區</span>：蒸汽火車頭、生態池、森林步道（免費！約1.5hr）</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail"><span class="spot">羅東夜市</span>（中午也有營業的攤位）：包心粉圓、蔥油餅、烤肉風味餐</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 13:30-17:00</div>
+<div class="time-detail"><span class="spot">斑比山丘</span>（約20分鐘車程）：餵梅花鹿！像奈良一樣，小鹿超親人。或選擇 <span class="spot">蜡藝蠟筆城堡</span> DIY做彩色蠟筆。<br><span class="mezastar-tag">🎮 Mezastar：羅東家樂福遊戲區 / 宜蘭新月廣場湯姆熊</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:00-21:00</div>
+<div class="time-detail">回礁溪溫泉飯店，泡溫泉＋兒童戲水池放電！早點休息，明天要走蘇花改前往花蓮！</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>羅東 — 包心粉圓、義豐蔥油餅、阿灶伯當歸羊肉湯、三星蔥餡餅</div>
+<div class="stay-box">🏨 <b>住宿：</b>蘭城晶英酒店（芬朵奇堡+電動車跑道，親子首選！）</div>
+</div>
+
+<div class="day-block">
+<h3>🏰 DAY 2 — 蘭城晶英全日放電・傳藝中心</h3>
+<div class="day-date">12/19（六）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 9:00-12:00</div>
+<div class="time-detail"><span class="spot">蘭城晶英酒店</span>設施全開：<span class="spot">芬朵奇堡</span>大型室內遊樂場（球池、溜滑梯、攀爬）→ <span class="spot">電動車跑道</span>讓小孩開車巡遊（超搶手要早起排！）。7歲11歲都玩瘋。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail">飯店自助午餐 或 新月廣場美食街（樓下直通超方便）</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 13:30-17:00</div>
+<div class="time-detail"><span class="spot">國立傳統藝術中心</span>（車程15min）：DIY手作體驗（捏麵人、畫糖、藍染）、搭船遊河、看民俗表演。古色古香的街道小孩超愛逛。<br><span class="mezastar-tag">🎮 Mezastar：宜蘭新月廣場湯姆熊（回飯店時順路玩）</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:00-21:00</div>
+<div class="time-detail">回飯店再玩一輪設施＋游泳池。晚餐在飯店或新月廣場解決。早點休息，明天走蘇花改去花蓮！</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>蘭城晶英自助餐、傳藝中心 — 古早味糖蔥、手工麻糬、鼎邊趖</div>
+<div class="stay-box">🏨 <b>住宿：</b>蘭城晶英酒店（第二晚，玩好玩滿！）</div>
+</div>
+</div>
+
+<div class="section" id="east">
+<div class="region-header">
+<div class="days-label">DAY 3 — 6 · DEC 20-23</div>
+<h2>花東</h2>
+<div class="subtitle">海洋公園、太魯閣、牧場、池上、溫泉</div>
+</div>
+
+<div class="day-block">
+<h3>🐬 DAY 3 — 蘇花改・遠雄海洋公園</h3>
+<div class="day-date">12/20（日）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 7:30-10:30</div>
+<div class="time-detail">早起走<span class="spot">蘇花改</span>到花蓮（約2小時）。路況好、隧道多，小孩在車上補眠或看平板。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 10:30-12:00</div>
+<div class="time-detail">抵達花蓮，先到 <span class="spot">公正包子</span> 或 <span class="spot">炸彈蔥油餅</span> 簡單吃，再進海洋公園。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 12:00-17:00</div>
+<div class="time-detail"><span class="spot">遠雄海洋公園</span> 玩整個下午！海豚表演、海獅秀（小孩超興奮）、摩天輪、水族館。11歲的敢玩雲霄飛車，7歲的看表演＋旋轉木馬。<br><span class="mezastar-tag">🎮 Mezastar：海洋公園園區內遊戲區有機台！</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:30-21:00</div>
+<div class="time-detail">回花蓮市區，<span class="spot">東大門夜市</span>：射氣球、撈金魚、烤玉米、炸彈蔥油餅、官財板。小孩夜市遊戲玩不停！</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>花蓮 — 公正包子、炸彈蔥油餅、東大門夜市烤肉串、液香扁食</div>
+<div class="stay-box">🏨 <b>住宿：</b>花蓮翰品酒店（有遊戲室）/ 花蓮美侖大飯店（泳池+兒童設施）/ 捷絲旅花蓮中正館</div>
+</div>
+
+<div class="day-block">
+<h3>🏔 DAY 4 — 太魯閣・七星潭</h3>
+<div class="day-date">12/21（一）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 8:30-12:00</div>
+<div class="time-detail"><span class="spot">太魯閣國家公園</span>：選平緩步道 — <span class="spot">砂卡礑步道</span>（來回約1hr，水超清澈！）或<span class="spot">小錐麓步道</span>。看峽谷大理石壁，小孩會驚嘆大自然的鬼斧神工。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail">太魯閣遊客中心旁餐廳 或 回花蓮市區吃 <span class="spot">鵝肉先生</span>、<span class="spot">戴記扁食</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 14:00-17:00</div>
+<div class="time-detail"><span class="spot">七星潭</span>：撿漂亮石頭、疊石頭、看浪花（提醒別太靠近海邊）。也可以騎腳踏車沿七星潭自行車道。<br><span class="mezastar-tag">🎮 Mezastar：花蓮遠百/新天堂樂園 湯姆熊</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:30-21:00</div>
+<div class="time-detail">花蓮市區晚餐，可以去<span class="spot">花蓮文創園區</span>逛逛，或再訪東大門夜市。⚾ 有時間的話去<span class="spot">大魯閣棒壘球打擊場花蓮館</span>（24hr營業）讓男孩們揮棒放電！早點休息準備明天南下。</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>鵝肉先生、戴記扁食、花蓮薯（伴手禮）、廟口紅茶</div>
+<div class="stay-box">🏨 <b>住宿：</b>同 Day 3 花蓮市區飯店</div>
+</div>
+
+<div class="day-block">
+<h3>🐄 DAY 5 — 瑞穗牧場・池上伯朗大道</h3>
+<div class="day-date">12/22（二）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 8:30-11:30</div>
+<div class="time-detail">開車沿花東縱谷南下（約1.5hr到瑞穗）→ <span class="spot">瑞穗牧場</span>：餵乳牛、喝鮮奶、吃鮮奶饅頭和乳酪蛋糕。免門票！小孩超愛餵牛。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail">繼續開到池上（約1hr），吃<span class="spot">池上飯包文化故事館</span>：正宗池上便當！在舊火車廂裡吃超有氣氛。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 14:00-17:00</div>
+<div class="time-detail">租腳踏車（有親子車/四人協力車）騎 <span class="spot">伯朗大道</span> + <span class="spot">金城武樹</span>打卡。一望無際的稻田，全家騎車超歡樂！</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:30-21:00</div>
+<div class="time-detail">開車到台東市區（約40min），入住飯店。<span class="spot">台東觀光夜市</span>或市區小吃。<br><span class="mezastar-tag">🎮 Mezastar：台東秀泰影城遊戲區</span></div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>池上便當、瑞穗鮮奶饅頭、台東米苔目、楊記地瓜酥</div>
+<div class="stay-box">🏨 <b>住宿：</b>台東桂田喜來登 / The Gaya Hotel（有泳池）/ 台東文旅</div>
+</div>
+
+<div class="day-block">
+<h3>🎄 DAY 6 — 初鹿牧場・鐵花村・知本溫泉</h3>
+<div class="day-date">12/23（三）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 9:00-12:00</div>
+<div class="time-detail"><span class="spot">初鹿牧場</span>：餵小動物（兔子、小馬、乳牛）、<span class="spot">滑草</span>（超刺激！）、喝鮮奶冰淇淋。11歲的會想一直滑草，7歲的餵動物餵不停。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail">牧場內餐廳（鮮奶鍋、漢堡）或回台東市區吃<span class="spot">老東台米苔目</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 14:00-17:00</div>
+<div class="time-detail"><span class="spot">台東森林公園</span>騎腳踏車（有兒童車道，琵琶湖超美）→ <span class="spot">鐵花村</span>市集逛逛、看熱氣球裝置藝術<br><span class="mezastar-tag">🎮 Mezastar：台東秀泰影城（鐵花村附近步行5分鐘）</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:30-21:00</div>
+<div class="time-detail">前往<span class="spot">知本溫泉</span>（約30min），泡湯＋兒童戲水區。在溫泉飯店享用晚餐，好好放鬆！</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>初鹿鮮奶冰淇淋、老東台米苔目、知本溫泉飯店晚餐</div>
+<div class="stay-box">🏨 <b>住宿：</b>知本老爺酒店（兒童遊戲室+溫泉）/ 知本金聯世紀酒店 / 東遊季溫泉渡假村</div>
+</div>
+</div>
+
+<div class="section" id="south">
+<div class="region-header">
+<div class="days-label">DAY 7 — 10 · DEC 24-27</div>
+<h2>南部</h2>
+<div class="subtitle">墾丁、海生館夜宿、義大、GOPARK卡丁車、i-Ride、哈瑪星鐵道館</div>
+</div>
+
+<div class="day-block">
+<h3>🏖 DAY 7 — 南迴公路・墾丁沙灘</h3>
+<div class="day-date">12/24（四）平安夜</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 7:30-11:00</div>
+<div class="time-detail">從知本出發走<span class="spot">南迴公路</span>（約2.5-3hr）。沿途風景超美，經過<span class="spot">多良車站</span>可停車拍照10分鐘（最美車站！）。車上準備零食和平板給小孩。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 11:30-13:00</div>
+<div class="time-detail">抵達墾丁，到<span class="spot">恆春鎮上</span>吃午餐：綠豆蒜、滷味、阿伯綠豆饌。或直接到飯店附設餐廳。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 13:30-17:30</div>
+<div class="time-detail"><span class="spot">白沙灣</span>玩沙玩水（水淺適合小孩，帶挖沙工具！）→ <span class="spot">鵝鑾鼻燈塔</span>散步＋草地奔跑 → <span class="spot">船帆石</span>拍照。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 18:00-21:00</div>
+<div class="time-detail"><span class="spot">墾丁大街</span>：滷味、芒果冰、烤魷魚、打彈珠遊戲。夜市氛圍很熱鬧！<br><span class="mezastar-tag">🎮 Mezastar：墾丁大街附近遊戲機店（散店，機台較少但有）</span></div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>墾丁大街 — 一品滷味、阿蝦烤魷魚、恆春綠豆蒜、泰式料理</div>
+<div class="stay-box">🏨 <b>住宿：</b>墾丁凱撒大飯店（沙灘+兒童池）/ 墾丁夏都沙灘酒店 / H會館（無邊際泳池）</div>
+</div>
+
+<div class="day-block">
+<h3>🐋 DAY 8 — 海生館夜宿！！！</h3>
+<div class="day-date">12/25（五）聖誕節 🎄 · 此行最難忘體驗</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 9:00-12:00</div>
+<div class="time-detail">墾丁飯店退房，睡晚一點沒關係。上午在飯店泳池或沙灘悠閒玩耍。整理行李。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail">後壁湖漁港午餐：<span class="spot">輝哥生魚片</span>（超大盤又便宜！）、海鮮炒飯。吃飽準備進海生館。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 14:00-17:30</div>
+<div class="time-detail"><span class="spot">國立海洋生物博物館</span>夜宿活動報到（通常下午4點）。先自由參觀：海底隧道、觸摸池、企鵝館、白鯨區。報到後開始夜宿專屬導覽活動。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 18:00-22:00</div>
+<div class="time-detail">夜宿專屬行程：晚餐 → <span class="spot">夜間導覽</span>（看夜行性海洋生物超酷！）→ <span class="spot">後場參觀</span>（飼育員帶你看幕後）→ 宵夜 → 在大洋池/海底隧道旁鋪睡袋，看著魚游來游去入睡 🐠💤</div>
+</div>
+<div class="info-box">⚠️ <b>重要提醒：</b>夜宿海生館超搶手！建議 <b>10月初就預約</b>（2個月前開放）。選區推薦：海底隧道區 > 白鯨區 > 極地區。含晚餐＋宵夜＋隔天早餐。預約：海生館官網或 Klook/KKday。</div>
+</div>
+
+<div class="day-block">
+<h3>🎢 DAY 9 — 義大遊樂世界</h3>
+<div class="day-date">12/26（六）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 7:00-10:00</div>
+<div class="time-detail">海生館早餐 → 看大洋池餵食秀 → 退房離館。開車北上高雄（約2hr）。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 10:30-12:00</div>
+<div class="time-detail">抵達義大世界，園區內午餐 或 義大 Outlet Mall 美食街（選擇超多）</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 12:00-18:00</div>
+<div class="time-detail"><span class="spot">義大遊樂世界</span>玩整天！三大主題區：希臘城堡、特洛伊區、聖托里尼區。7歲玩夢幻旋轉木馬＋城堡列車，11歲挑戰刺激雲霄飛車＋急速滑梯。<br><span class="mezastar-tag">🎮 Mezastar：義大 Outlet Mall 遊戲區（湯姆熊/大魯閣）</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 18:00-21:00</div>
+<div class="time-detail"><span class="spot">義大摩天輪</span>看高雄夜景 → Outlet Mall 逛逛買紀念品 → 開車到高雄市區入住（約30min）</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>義大 Outlet 美食街 / 到高雄市區後可吃鼎王麻辣鍋、丹丹漢堡（南部限定！小孩愛）</div>
+<div class="stay-box">🏨 <b>住宿：</b>高雄英迪格酒店（中央公園站旁）/ 高雄翰品酒店 / HOTEL COZZI 和逸飯店高雄中山館</div>
+</div>
+
+<div class="day-block">
+<h3>🏎 DAY 10 — GOPARK卡丁車・i-Ride・哈瑪星鐵道館・駁二</h3>
+<div class="day-date">12/27（日）· 高雄超充實一天</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 9:00-12:00</div>
+<div class="time-detail"><span class="spot">GOPARK 卡丁樂園</span>（室內冷氣！）：電動卡丁車（11歲單人車、7歲親子雙人車）→ <span class="spot">Laser Tag 雷射槍戰</span>全家對戰！整個早上在這裡就夠嗨了。<br><span class="mezastar-tag">🎮 Mezastar：GOPARK 園區內就有遊戲機台！</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail">GOPARK 內附設餐廳 或 開車到駁二附近吃 <span class="spot">丹丹漢堡</span>（小孩最愛炸雞＋麵線套餐）</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 13:30-17:30</div>
+<div class="time-detail"><span class="spot">哈瑪星台灣鐵道館</span>（駁二蓬萊倉庫）：超大模型鐵道，台灣各地火車縮小版，小孩看到不想走（約1-1.5hr）→ <span class="spot">i-Ride 飛行劇院</span>（高雄軟體園區，離駁二車程10min）：5D體感飛行，像坐在鳥上面飛越台灣，超震撼！一場約20分鐘。→ <span class="spot">駁二藝術特區</span>大型裝置藝術拍照 + <span class="spot">哈瑪星小火車</span>搭乘</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 18:00-21:00</div>
+<div class="time-detail"><span class="spot">愛河</span>搭船遊河看夜景（小孩愛搭船！）→ <span class="spot">瑞豐夜市</span>：地瓜球、雞蛋糕、烤肉、打彈珠。⚾ 或改去<span class="spot">大魯閣棒壘球打擊場博愛館</span>（左營區，24hr）全家揮棒比賽！</div>
+</div>
+<div class="info-box">⚠️ <b>注意：</b>哈瑪星鐵道館<b>週二休館</b>，12/27是週日OK！GOPARK建議<b>提前1週線上預約</b>時段。i-Ride現場買票或Klook先買。</div>
+<div class="food-box">🍽 <b>推薦吃：</b>丹丹漢堡、瑞豐夜市、駁二附近港口海鮮、高雄木瓜牛奶大王</div>
+<div class="stay-box">🏨 <b>住宿：</b>同 Day 9 高雄市區飯店（住兩晚不搬行李）</div>
+</div>
+</div>
+
+<div class="section" id="central">
+<div class="region-header">
+<div class="days-label">DAY 11 — 13 · DEC 28-30</div>
+<h2>中西部</h2>
+<div class="subtitle">奇美博物館、台南棒球、台中科博館、洲際棒球文創園區、SNOWTOWN</div>
+</div>
+
+<div class="day-block">
+<h3>🏛 DAY 11 — 奇美博物館・台南美食・大魯閣打擊場</h3>
+<div class="day-date">12/28（一）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 9:00-12:30</div>
+<div class="time-detail">從高雄開車到台南（約40min）→ <span class="spot">奇美博物館</span>：動物標本廳（真實標本超震撼！）、兵器展（11歲超愛刀劍盔甲）、樂器廳。博物館外大草地可以奔跑。<br><span class="mezastar-tag">🎮 Mezastar：台南南紡購物中心湯姆熊（距奇美約15min車程）</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:30-14:00</div>
+<div class="time-detail">開車到台南市區，<span class="spot">國華街</span>美食巡禮：牛肉湯、碗粿、蝦捲、棺材板、布丁。小孩通常愛棺材板（炸吐司盒裡面有濃湯）和安平豆花。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 14:30-17:00</div>
+<div class="time-detail"><span class="spot">安平樹屋</span>探險（樹根纏繞老屋，像叢林冒險！）→ <span class="spot">安平老街</span>：劍獅尋寶、買蝦餅、安平豆花 → ⚾ <span class="spot">大魯閣棒壘球打擊場仁德館</span>（24hr，往台中路上順路）讓男孩們再打一輪！</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:30-21:00</div>
+<div class="time-detail">開車北上台中（走國道約2hr）。抵達後入住，簡單吃<span class="spot">逢甲夜市</span>或飯店附近覓食。</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>台南 — 六千牛肉湯、阿堂鹹粥、周氏蝦捲、安平豆花、林永泰興蜜餞</div>
+<div class="stay-box">🏨 <b>住宿：</b>台中林酒店 / 台中日月千禧酒店 / 逢甲星享道酒店（走路到逢甲夜市）</div>
+</div>
+
+<div class="day-block">
+<h3>🦕 DAY 12 — 科博館恐龍・SNOWTOWN玩雪・逢甲夜市</h3>
+<div class="day-date">12/29（二）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 9:00-12:00</div>
+<div class="time-detail"><span class="spot">國立自然科學博物館</span>：恐龍廳（全台最大恐龍骨架！）、太空劇場（球型螢幕超震撼）、科學中心互動體驗。兩個小孩都會超投入，建議停留2.5hr。<br><span class="mezastar-tag">🎮 Mezastar：科博館附近 — 台中廣三SOGO湯姆熊 / 勤美誠品附近遊戲場</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail"><span class="spot">審計新村</span>文創小店逛逛＋吃冰淇淋、雞蛋糕 → <span class="spot">宮原眼科</span>買伴手禮＋吃冰（超華麗冰淇淋！）</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 14:00-17:00</div>
+<div class="time-detail"><span class="spot">SNOWTOWN 雪樂地</span>（台中三井 Outlet 內）：室內玩雪場！滑雪盆、堆雪人、打雪仗。12月在室內玩雪超新鮮，小孩會玩到不想走。建議停留1.5-2hr。場地有提供雪衣雪褲。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:30-21:00</div>
+<div class="time-detail"><span class="spot">逢甲夜市</span>大吃特吃！地瓜球、明倫蛋餅、官芝霖大腸包小腸、黃金左腿、旋風薯塔（小孩最愛造型食物）。最後一晚好好享受！</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>宮原眼科冰淇淋、逢甲夜市 — 明倫蛋餅、日船章魚小丸子、一心素食臭豆腐</div>
+<div class="stay-box">🏨 <b>住宿：</b>同 Day 11 台中飯店</div>
+</div>
+
+<div class="day-block">
+<h3>⚾ DAY 13 — 洲際棒球文創園區・大魯閣打擊場</h3>
+<div class="day-date">12/30（三）</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 9:00-12:00</div>
+<div class="time-detail"><span class="spot">洲際棒球文創園區</span>（台中北屯）：棒球故事館看台灣棒球歷史、互動打擊體驗、模擬跑壘、棒球科學展。旁邊就是<span class="spot">台中洲際棒球場</span>（中信兄弟主場），可以在外面拍照朝聖！</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-13:30</div>
+<div class="time-detail">北屯區午餐 或 開車到<span class="spot">一中街商圈</span>吃小吃（雞排、滷味、珍奶）</div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 14:00-17:00</div>
+<div class="time-detail"><span class="spot">大魯閣棒壘球打擊場</span>（台中新時代館）：全家開打！60-130km/h各種速度，7歲打慢速壘球、11歲挑戰棒球。還有迷你保齡球、飛鏢可以玩。帶棒球手套的話可以在旁邊空地傳接球⚾<br><span class="mezastar-tag">🎮 Mezastar：大魯閣新時代同樓層就有遊戲機台！</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 17:30-21:00</div>
+<div class="time-detail"><span class="spot">逢甲夜市</span>再戰一回！或去<span class="spot">台中LaLaport</span>逛逛。整理行李準備明天回家。</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>一中街雞排、逢甲夜市、台中肉蛋吐司</div>
+<div class="stay-box">🏨 <b>住宿：</b>同 Day 11 台中飯店（第三晚）</div>
+</div>
+</div>
+
+<div class="section" id="back">
+<div class="region-header">
+<div class="days-label">DAY 14 · DEC 31</div>
+<h2>回程・跨年</h2>
+<div class="subtitle">台中回中和、跨年倒數迎接2027！</div>
+</div>
+
+<div class="day-block">
+<h3>🎆 DAY 14 — 回中和・跨年倒數</h3>
+<div class="day-date">12/31（四）跨年夜 🎇</div>
+<div class="time-slot">
+<div class="time-label">🌅 早上 9:00-12:00</div>
+<div class="time-detail">睡到自然醒，悠閒退房。可以在台中再逛一下：<span class="spot">台中公園</span>散步 或 <span class="spot">第二市場</span>吃早午餐（老賴紅茶、菜頭粿）。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🍜 中午 12:00-14:00</div>
+<div class="time-detail">開車北上回中和（國道約2hr）。途中可在<span class="spot">西湖服務區</span>休息吃午餐，讓小孩上廁所伸展。<br><span class="mezastar-tag">🎮 Mezastar：西湖服務區/湖口服務區有些有遊戲機台可碰運氣</span></div>
+</div>
+<div class="time-slot">
+<div class="time-label">☀️ 下午 14:00-17:00</div>
+<div class="time-detail">抵達中和！回家整理行李、洗衣服、整理14天的照片和紀念品。讓小孩休息一下養精蓄銳。</div>
+</div>
+<div class="time-slot">
+<div class="time-label">🌙 晚上 18:00-00:30</div>
+<div class="time-detail">跨年選擇：<br>① 在家舒服看電視轉播101煙火（小孩可能累了，最輕鬆）<br>② 去<span class="spot">板橋市民廣場</span>跨年晚會（離中和近！）<br>③ 衝<span class="spot">信義區</span>看101煙火（人很多，帶小孩要有心理準備）<br>🎆 一起倒數迎接 2027！為14天環島畫下完美句點！</div>
+</div>
+<div class="food-box">🍽 <b>推薦吃：</b>回家煮火鍋慶祝 / 中和華新街緬甸美食 / 叫外送犒賞自己</div>
+<div class="stay-box">🏠 <b>回到溫暖的家！</b>把旅行日記和照片整理一下，做成2026年最棒的回憶相簿 📷</div>
+</div>
+</div>
+
+<div class="section" id="tips">
+<div class="region-header">
+<h2>親子旅遊貼士</h2>
+<div class="subtitle">帶 7 歲 & 11 歲小孩環島的實用建議</div>
+</div>
+
+<div class="tips-grid">
+<div class="tip-card">
+<h3>🚗 交通建議</h3>
+<ul>
+<li>自駕最彈性，小孩累了隨時休息</li>
+<li>7歲需要增高墊安全座椅</li>
+<li>車上備零食、平板、耳機、充電線</li>
+<li>每2小時休息一次，找有廁所的休息站</li>
+<li>花東/南迴段路程較長，搭配有聲書或兒童Podcast</li>
+<li>Google Maps離線地圖先下載好（山區沒訊號）</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>🏨 住宿選擇</h3>
+<ul>
+<li>選有兒童設施的飯店（泳池、遊戲室）</li>
+<li>親子民宿有溜滑梯房型超受歡迎</li>
+<li>海生館夜宿要提早2個月預約</li>
+<li>跨年期間所有住宿9-10月就要訂！</li>
+<li>確認房間有浴缸（小孩愛泡澡）</li>
+<li>盡量住兩晚同一間，減少搬行李</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>🎮 Mezastar 攻略</h3>
+<ul>
+<li>台灣 2025/4/2 上線，12月全台都有機台</li>
+<li>主要在：湯姆熊、大魯閣、百貨遊戲區</li>
+<li>每城市的大型百貨/購物中心幾乎都有</li>
+<li>記得帶夠零錢或儲值卡（一場約30-50元）</li>
+<li>帶收納盒裝 Meza Tags，旅途中收集！</li>
+<li>建議每天限玩3-5場，不然時間會被吃掉</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>⚠️ 需提前預約清單 & 連結</h3>
+<ul>
+<li><b>🐋 夜宿海生館</b>（10月初就訂！）<br>
+→ <a href="https://www.nmmba.gov.tw" target="_blank">海生館官網</a><br>
+→ <a href="https://www.klook.com/zh-TW/activity/2631-sleepover-national-museum-marine-biology-aquarium-pingtung/" target="_blank">Klook 夜宿海生館</a><br>
+→ <a href="https://www.kkday.com/zh-tw/product/2631" target="_blank">KKday 夜宿海生館</a>
+</li>
+<li><b>🏎 GOPARK 卡丁車</b>（出發前1-2週）<br>
+→ <a href="https://www.facebook.com/GOPARK.tw" target="_blank">GOPARK 粉絲專頁（線上預約）</a>
+</li>
+<li><b>🐬 遠雄海洋公園</b>（先買較便宜）<br>
+→ <a href="https://www.klook.com/zh-TW/activity/422-farglory-ocean-park-hualien/" target="_blank">Klook 遠雄海洋公園門票</a>
+</li>
+<li><b>🎢 義大遊樂世界</b>（先買較便宜）<br>
+→ <a href="https://www.klook.com/zh-TW/activity/2737-e-da-theme-park-kaohsiung/" target="_blank">Klook 義大門票</a>
+</li>
+<li><b>🛩 i-Ride 高雄飛行劇院</b>（現場或線上都可）<br>
+→ <a href="https://www.klook.com/zh-TW/activity/10316-kaohsiung-i-ride-experience-center-kaohsiung/" target="_blank">Klook i-Ride 高雄門票</a>
+</li>
+<li><b>🎿 SNOWTOWN 雪樂地</b>（現場或線上）<br>
+→ <a href="https://www.klook.com/zh-TW/activity/76412-mitsui-outlet-part-snowtown-ticket-taichung/" target="_blank">Klook SNOWTOWN 門票</a>
+</li>
+<li><b>✗ 不用預約：</b>哈瑪星鐵道館、科博館、奇美博物館</li>
+<li><b>📅 確認營業日：</b>鐵道館週二休、奇美週三休、科博館週一休</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>🎒 必備物品</h3>
+<ul>
+<li>兒童防曬、薄外套（南部曬、北部涼）</li>
+<li>雨衣比雨傘方便（小孩好活動）</li>
+<li>挖沙工具組（墾丁用）</li>
+<li>小背包讓孩子裝自己的水壺零食</li>
+<li>簡單急救包（OK繃、退燒藥、暈車藥）</li>
+<li>Meza Tags 收納盒 + 零錢袋</li>
+<li>旅行日記本讓孩子每天畫/寫</li>
+</ul>
+</div>
+<div class="tip-card">
+<h3>💡 行程彈性原則</h3>
+<ul>
+<li>不用每個點都去，看小孩狀態調整</li>
+<li>每天留午休/放空時間（1-2小時）</li>
+<li>7歲體力有限，下午可能需要小睡</li>
+<li>11歲可能想要自己的探索時間</li>
+<li>隨時準備 Plan B（下雨改室內景點）</li>
+<li>Mezastar 可當作「獎勵」激勵小孩配合行程</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<p>台灣親子環島 14天行程 · Dec 18 — 31, 2026</p>
+<p style="margin-top:8px">從中和出發，帶孩子看見台灣的美 <span class="heart">❤</span></p>
+</div>
+
+<script>
+document.querySelectorAll('.tab').forEach(tab=>{
+tab.addEventListener('click',()=>{
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+tab.classList.add('active');
+document.getElementById(tab.dataset.tab).classList.add('active');
+});
+});
+const tooltip=document.getElementById('tooltip');
+document.querySelectorAll('.map-pin').forEach(pin=>{
+function show(e){
+const t=pin.dataset.title,i=pin.dataset.info;
+tooltip.innerHTML='<h4>'+t+'</h4><p>'+i+'</p>';
+const svg=pin.closest('svg'),rect=svg.getBoundingClientRect(),c=pin.querySelector('circle');
+const cx=parseFloat(c.getAttribute('cx')),cy=parseFloat(c.getAttribute('cy'));
+const px=cx/300*rect.width,py=cy/500*rect.height;
+tooltip.style.left=Math.min(px+15,rect.width-180)+'px';
+tooltip.style.top=(py-20)+'px';
+tooltip.classList.add('show');
+}
+function hide(){tooltip.classList.remove('show');}
+pin.addEventListener('mouseenter',show);
+pin.addEventListener('mouseleave',hide);
+pin.addEventListener('touchstart',e=>{e.preventDefault();show(e);setTimeout(hide,3000);},{passive:false});
+});
+</script>
+</body>
+</html>
