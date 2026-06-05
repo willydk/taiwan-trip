@@ -59,7 +59,22 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 .map-detail p{color:#555;margin:0;font-size:14px;line-height:1.8}
 .map-detail .detail-schedule{margin-top:10px;padding-top:10px;border-top:1px solid #eee;font-size:13px;color:#666}
 .map-legend{text-align:center;margin-top:16px;font-size:12px;color:#888}
-@media(max-width:600px){.header h1{font-size:28px}.tabs{overflow-x:auto}.tab{padding:12px 12px;font-size:13px}.day-block{padding:18px}.map-detail{padding:16px}}
+.spot-link{cursor:pointer;border-bottom:1px dashed #e67e22;transition:color .2s}
+.spot-link:hover{color:#e67e22}
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:999;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex}
+.modal{background:#fff;border-radius:14px;max-width:420px;width:100%;max-height:85vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
+.modal-img{width:100%;height:220px;object-fit:cover;border-radius:14px 14px 0 0;background:#eee}
+.modal-body{padding:20px}
+.modal-body h3{font-size:18px;color:#2c3e50;margin-bottom:8px}
+.modal-body p{font-size:14px;color:#555;line-height:1.7;margin-bottom:14px}
+.modal-links{display:flex;gap:10px;flex-wrap:wrap}
+.modal-links a{display:inline-flex;align-items:center;gap:5px;padding:8px 14px;border-radius:8px;font-size:13px;font-weight:500;text-decoration:none;transition:opacity .2s}
+.modal-links a:hover{opacity:0.8}
+.btn-maps{background:#4285f4;color:#fff}
+.btn-photo{background:#e67e22;color:#fff}
+.modal-close{position:absolute;top:12px;right:14px;background:rgba(0,0,0,0.5);color:#fff;border:none;border-radius:50%;width:30px;height:30px;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+@media(max-width:600px){.header h1{font-size:28px}.tabs{overflow-x:auto}.tab{padding:12px 12px;font-size:13px}.day-block{padding:18px}.map-detail{padding:16px}.modal{max-width:100%;border-radius:10px}.modal-img{height:180px}}
 </style>
 </head>
 <body>
@@ -635,6 +650,18 @@ body{font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;background:#f5f0
 <p style="margin-top:8px">從中和出發，帶孩子看見台灣的美 <span class="heart">❤</span></p>
 </div>
 
+<div class="modal-overlay" id="modal-overlay">
+<div class="modal" id="modal">
+<button class="modal-close" id="modal-close">×</button>
+<img class="modal-img" id="modal-img" src="" alt=""/>
+<div class="modal-body">
+<h3 id="modal-title"></h3>
+<p id="modal-desc"></p>
+<div class="modal-links" id="modal-links"></div>
+</div>
+</div>
+</div>
+
 <script>
 document.querySelectorAll('.tab').forEach(tab=>{
 tab.addEventListener('click',()=>{
@@ -672,6 +699,72 @@ document.addEventListener('click',e=>{
 if(!e.target.closest('.map-pin')&&!e.target.closest('.map-detail')){
 if(activePin){activePin.classList.remove('active');activePin=null;}
 detail.classList.remove('show');
+}
+});
+
+// === SPOT MODAL SYSTEM ===
+const spots={
+"十分老街放天燈":{desc:"在天燈上寫下心願，全家一起放飛！十分老街最經典的體驗。",lat:25.0561,lng:121.7764,search:"Shifen+Old+Street+sky+lantern+Taiwan"},
+"十分瀑布":{desc:"台灣最大簾幕式瀑布，有「台灣尼加拉瀑布」之稱。步道輕鬆好走，來回約40分鐘。",lat:25.0467,lng:121.7848,search:"Shifen+Waterfall+Taiwan"},
+"宜蘭幾米公園":{desc:"宜蘭火車站旁的繪本主題公園，幾米作品真實呈現。星空列車、飛天行李箱，拍照超可愛！",lat:24.7527,lng:121.7580,search:"Jimmy+Park+Yilan+Taiwan"},
+"羅東林業文化園區":{desc:"免費入場！保留日治時期林業遺跡，有蒸汽火車頭、生態池、森林步道。小孩可以近距離看舊火車。",lat:24.6816,lng:121.7700,search:"Luodong+Forestry+Culture+Garden+Taiwan"},
+"斑比山丘":{desc:"宜蘭版奈良！和梅花鹿零距離互動餵食，小鹿超親人。園區乾淨漂亮，很適合親子。",lat:24.6900,lng:121.7100,search:"Bambi+Land+Yilan+deer+Taiwan"},
+"蘭城晶英酒店":{desc:"宜蘭最強親子飯店！芬朵奇堡巨型室內遊樂場、電動車跑道讓小孩開車巡遊。7歲11歲都玩瘋。",lat:24.7520,lng:121.7530,search:"Silks+Place+Yilan+kids+hotel"},
+"國立傳統藝術中心":{desc:"古色古香的文化園區，有捏麵人、畫糖、藍染等DIY體驗。可以搭船遊河、看民俗表演。",lat:24.6870,lng:121.8260,search:"National+Center+Traditional+Arts+Yilan"},
+"遠雄海洋公園":{desc:"花蓮必去！有海豚表演、海獅秀、摩天輪、水族館、雲霄飛車。11歲挑戰刺激設施，7歲看表演超開心。",lat:23.8900,lng:121.5700,search:"Farglory+Ocean+Park+Hualien"},
+"太魯閣國家公園":{desc:"世界級峽谷地形！大理石壁超壯觀。帶小孩走砂卡礑步道（平緩好走），水超清澈。",lat:24.1570,lng:121.4950,search:"Taroko+Gorge+National+Park"},
+"砂卡礑步道":{desc:"太魯閣最適合親子的步道，來回約1小時。沿途看清澈溪水和大理石岩壁，小孩會驚嘆不已。",lat:24.1710,lng:121.4920,search:"Shakadang+Trail+Taroko"},
+"七星潭":{desc:"花蓮最美鵝卵石海灘！撿漂亮石頭、疊石頭、看太平洋浪花。可以騎腳踏車沿海岸線。注意別太靠近水邊。",lat:24.0280,lng:121.6310,search:"Qixingtan+Beach+Hualien"},
+"瑞穗牧場":{desc:"免門票！餵乳牛、喝現擠鮮奶、吃鮮奶饅頭和乳酪蛋糕。小孩超愛餵牛，停留約1-1.5小時。",lat:23.4650,lng:121.3650,search:"Ruisui+Ranch+Hualien+cow"},
+"池上飯包文化故事館":{desc:"正宗池上便當！在舊火車廂裡吃便當超有氣氛。了解台灣便當文化的好地方。",lat:23.1150,lng:121.2150,search:"Chishang+Bento+Museum+Taitung"},
+"伯朗大道":{desc:"一望無際的稻田！租四人協力車全家一起騎，到金城武樹打卡。12月可能是二期稻收割後，綠色田野。",lat:23.1000,lng:121.2200,search:"Brown+Boulevard+Chishang+Taitung"},
+"初鹿牧場":{desc:"台東最大牧場！滑草超刺激（11歲超愛），還可以餵兔子、小馬、乳牛。鮮奶冰淇淋必吃。",lat:22.8400,lng:121.0500,search:"Chulu+Ranch+Taitung+grass+sliding"},
+"鐵花村":{desc:"台東文創市集，有手作攤位、音樂表演。熱氣球裝置藝術超好拍，晚上點燈很浪漫。",lat:22.7500,lng:121.1450,search:"Tiehua+Music+Village+Taitung"},
+"知本溫泉":{desc:"台東知名溫泉區，泡湯放鬆一天的疲勞。很多飯店有兒童戲水區和滑水道。",lat:22.6920,lng:120.9850,search:"Zhiben+Hot+Spring+Taitung"},
+"多良車站":{desc:"號稱全台最美車站！站在月台上直接看太平洋，拍照10分鐘就夠。南迴公路途經必停。",lat:22.5250,lng:120.9500,search:"Duoliang+Station+most+beautiful+Taiwan"},
+"白沙灣":{desc:"墾丁最適合小孩的沙灘！白沙細軟、水淺。帶挖沙工具來，小孩可以玩整個下午。",lat:21.9270,lng:120.7080,search:"Baisha+Bay+Kenting+beach"},
+"鵝鑾鼻燈塔":{desc:"台灣最南端的燈塔！白色燈塔配藍天超美。周圍大草地讓小孩奔跑放電。",lat:21.9020,lng:120.8550,search:"Eluanbi+Lighthouse+Kenting"},
+"墾丁大街":{desc:"南台灣最熱鬧的夜市街！滷味、芒果冰、烤魷魚，還有打彈珠、套圈圈等小孩最愛的遊戲攤位。",lat:21.9450,lng:120.8000,search:"Kenting+Street+night+market"},
+"國立海洋生物博物館":{desc:"夜宿海生館是此行最難忘體驗！在海底隧道旁鋪睡袋，看魚游來游去入睡。含夜間導覽、後場參觀。",lat:22.0450,lng:120.6980,search:"National+Museum+Marine+Biology+Aquarium+sleepover"},
+"義大遊樂世界":{desc:"南台灣最大遊樂園！三大主題區。7歲玩旋轉木馬＋城堡列車，11歲挑戰雲霄飛車。聖誕節有特別活動！",lat:22.7300,lng:120.3900,search:"E-Da+Theme+Park+Kaohsiung"},
+"GOPARK 卡丁樂園":{desc:"室內電動卡丁車！11歲可以單人開，7歲坐親子雙人車。還有雷射槍戰全家對戰，超刺激。",lat:22.5900,lng:120.3100,search:"GOPARK+Kaohsiung+go-kart+kids"},
+"哈瑪星台灣鐵道館":{desc:"駁二蓬萊倉庫內的超大模型鐵道！台灣各地火車縮小版，有高鐵、蒸汽火車等。火車迷小孩看到不想走。",lat:22.6200,lng:120.2800,search:"Hamasen+Railway+Museum+Kaohsiung"},
+"i-Ride 飛行劇院":{desc:"5D體感飛行體驗！像坐在鳥上面飛越台灣各地美景，超震撼。一場約20分鐘，大人小孩都會尖叫。",lat:22.6100,lng:120.2900,search:"i-Ride+Kaohsiung+flying+theater"},
+"駁二藝術特區":{desc:"高雄最潮文創區！巨大裝置藝術拍照、搭哈瑪星小火車。假日有市集和街頭表演。",lat:22.6200,lng:120.2820,search:"Pier-2+Art+Center+Kaohsiung"},
+"奇美博物館":{desc:"超壯觀的歐式博物館！動物標本廳（真實動物超震撼）、兵器展（11歲超愛刀劍盔甲）、樂器廳。外面大草地可以奔跑。",lat:22.9350,lng:120.2260,search:"Chimei+Museum+Tainan"},
+"安平樹屋":{desc:"被巨大榕樹根纏繞的老屋，像叢林冒險！小孩覺得像進入魔法森林。旁邊是安平老街可以買蝦餅。",lat:22.9970,lng:120.1600,search:"Anping+Tree+House+Tainan"},
+"國立自然科學博物館":{desc:"全台最大恐龍骨架在這裡！太空劇場球型螢幕超震撼，科學中心有大量互動體驗。小孩停留2-3小時不嫌多。",lat:24.1570,lng:120.6650,search:"National+Museum+Natural+Science+Taichung+dinosaur"},
+"SNOWTOWN 雪樂地":{desc:"台中三井Outlet內的室內玩雪場！滑雪盆、堆雪人、打雪仗。12月在室內玩雪超新鮮。提供雪衣雪褲。",lat:24.2550,lng:120.5300,search:"Snowtown+Taichung+indoor+snow"},
+"洲際棒球文創園區":{desc:"棒球故事館看台灣棒球歷史！有互動打擊體驗、模擬跑壘。旁邊就是中信兄弟主場洲際棒球場。",lat:24.1880,lng:120.7000,search:"Taichung+Intercontinental+Baseball+Stadium"},
+"大魯閣棒壘球打擊場":{desc:"全家開打！有60-130km/h各種速度，7歲打慢速壘球、11歲挑戰棒球快速球。還有迷你保齡球、飛鏢。",lat:24.1500,lng:120.6800,search:"Taroko+batting+cage+Taiwan+baseball"},
+"東大門夜市":{desc:"花蓮最大夜市！射氣球、撈金魚、烤玉米、官財板。小孩夜市遊戲玩不停。分原住民美食區和一般小吃區。",lat:23.9750,lng:121.6100,search:"Dongdamen+Night+Market+Hualien"},
+"台東森林公園":{desc:"又稱黑森林公園，有兒童車道和琵琶湖。租腳踏車全家一起騎，湖面倒映很美。",lat:22.7400,lng:121.1600,search:"Taitung+Forest+Park+bike"},
+};
+const overlay=document.getElementById('modal-overlay');
+const modal=document.getElementById('modal');
+const mImg=document.getElementById('modal-img');
+const mTitle=document.getElementById('modal-title');
+const mDesc=document.getElementById('modal-desc');
+const mLinks=document.getElementById('modal-links');
+document.getElementById('modal-close').onclick=()=>overlay.classList.remove('show');
+overlay.addEventListener('click',e=>{if(e.target===overlay)overlay.classList.remove('show');});
+function openSpot(name){
+const s=spots[name];if(!s)return;
+mTitle.textContent=name;
+mDesc.textContent=s.desc;
+mImg.src='https://source.unsplash.com/800x400/?'+s.search;
+mImg.alt=name;
+mLinks.innerHTML=
+'<a class="btn-maps" href="https://www.google.com/maps/search/?api=1&query='+s.lat+','+s.lng+'" target="_blank">📍 Google Maps</a>'+
+'<a class="btn-photo" href="https://www.google.com/maps/search/'+encodeURIComponent(name)+'/@'+s.lat+','+s.lng+',15z" target="_blank">📷 更多照片</a>';
+overlay.classList.add('show');
+}
+// Make all .spot elements clickable
+document.querySelectorAll('.spot').forEach(el=>{
+const name=el.textContent.trim();
+if(spots[name]){
+el.classList.add('spot-link');
+el.addEventListener('click',()=>openSpot(name));
 }
 });
 </script>
